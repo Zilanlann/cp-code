@@ -8,9 +8,7 @@ using namespace std;
 #define fi first
 #define se second
 #define SZ(x) ((int)(x).size())
-typedef vector<int> VI;
 typedef long long ll;
-typedef pair<int,int> PII;
 typedef double db;
 mt19937 mrand(random_device{}()); 
 const ll mod=1000000007;
@@ -19,7 +17,9 @@ ll powmod(ll a,ll b) {ll res=1;a%=mod; assert(b>=0); for(;b;b>>=1){if(b&1)res=re
 ll gcd(ll a,ll b) { return b?gcd(b,a%b):a;}
 // head
 
-/*Global variables*/
+int n, m, k, s, t, x;
+const ll momo = 998244353;
+int f[2005][2005][2];
 
 int main() {
 	ios::sync_with_stdio(false);
@@ -27,7 +27,17 @@ int main() {
 	cout.tie(nullptr);
 	//IO
 
-	/*Code*/
+	cin >> n >> m >> k >> s >> t >> x;
+	vector<int> a[n + 1];
+	rep(i, 0, m) {
+		int u, v;
+		cin >> u >> v;
+		a[u].pb(v);
+		a[v].pb(u);
+	}
+	
+
+
 
     return 0;
 }

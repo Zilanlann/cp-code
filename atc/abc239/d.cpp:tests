@@ -1,0 +1,23 @@
+[
+	{
+		"correct_answers":
+		[
+			"Aoki"
+		],
+		"test": "2 3 3 4\n"
+	},
+	{
+		"correct_answers":
+		[
+			"Takahashi"
+		],
+		"test": "1 100 50 60\n"
+	},
+	{
+		"correct_answers":
+		[
+			"Aoki"
+		],
+		"test": "3 14 1 5\n"
+	}
+]
