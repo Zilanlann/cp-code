@@ -1,0 +1,8 @@
+[
+	{
+		"test": "-v -u muffin -pass 12345\n"
+	},
+	{
+		"test": "-c -o -O2 -good -static false\n"
+	}
+]

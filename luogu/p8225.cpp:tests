@@ -1,0 +1,9 @@
+[
+	{
+		"correct_answers":
+		[
+			"aya\nbaka"
+		],
+		"test": "2\n1 999\n2 999\n"
+	}
+]
