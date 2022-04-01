@@ -17,14 +17,7 @@ ll powmod(ll a,ll b) {ll res=1;a%=mod; assert(b>=0); for(;b;b>>=1){if(b&1)res=re
 ll gcd(ll a,ll b) { return b?gcd(b,a%b):a;}
 // head
 
-const int maxn = 2e5 + 5;
-int n, x, a[maxn], tmp;
-vector<pair<int, char>> b;
-string s;
 
-bool cmp(const pair<int, char>& a, const pair<int, char>& b) {
-	return a.fi <= b.fi;
-}
 
 int main() {
 	ios::sync_with_stdio(false);
@@ -32,14 +25,6 @@ int main() {
 	cout.tie(nullptr);
 	//IO
 
-	cin >> n;
-	rep(i, 0, n) cin >> x >> a[i];
-	cin >> s;
-	rep(i, 0, n) b.pb(mp(a[i], s[i]));
-	sort(all(b), cmp);
-	rep(i, 0, n) {
-		
-	}
 
 
     return 0;
