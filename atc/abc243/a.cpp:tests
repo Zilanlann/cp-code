@@ -1,0 +1,23 @@
+[
+	{
+		"correct_answers":
+		[
+			"T"
+		],
+		"test": "25 10 11 12\n"
+	},
+	{
+		"correct_answers":
+		[
+			"F"
+		],
+		"test": "30 10 10 10\n"
+	},
+	{
+		"correct_answers":
+		[
+			"M"
+		],
+		"test": "100000 1 1 1\n"
+	}
+]
