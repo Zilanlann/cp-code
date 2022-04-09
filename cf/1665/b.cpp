@@ -17,10 +17,7 @@ ll powmod(ll a,ll b) {ll res=1;a%=mod; assert(b>=0); for(;b;b>>=1){if(b&1)res=re
 ll gcd(ll a,ll b) { return b?gcd(b,a%b):a;}
 // head
 
-ll n, x, a[2] = {1, 0};
-bool u = 1;
-string s;
-vector<int> ve;
+ll t;
 
 int main() {
 	ios::sync_with_stdio(false);
@@ -28,23 +25,32 @@ int main() {
 	cout.tie(nullptr);
 	//IO
 
-	cin >> n >> x >> s;
-	rep(i, 0, n) {
-		if (s[i] == 'L') ve.pb(1);
-		else if (s[i] == 'R') ve.pb(2);
+	cin >> t;
+	while (t--) {
+		ll n;
+		cin >> n;
+		map<ll, ll> ma;
+		rep(i, 0, n) {
+			ll a;
+			cin >> a;
+			ma[a]++;
+		}
+		ll maxx = 0;
+		for (auto v : ma) maxx = max(maxx, v.se);
+		if (maxx == n) cout << 0 << "\n";
 		else {
-			if (!ve.empty()) ve.pop_back();
-			else {
-				x /= 2;
-				if (x == 0) x = 1;
+			ll ans = 0;
+			if (maxx >= 2) {
+				ans += ((n - maxx) % 2 == 0 ? (n - maxx) / 2 + n - maxx : (n - maxx) / 2 * 3 + 2);
 			}
+			else {
+				maxx = 2;
+				ans += 2;
+				ans += ((n - maxx) % 2 == 0 ? (n - maxx) / 2 + n - maxx : (n - maxx) / 2 * 3 + 2);
+			}
+			cout << ans << "\n";
 		}
 	}
-	for (auto v : ve) {
-		if (v == 1) x *= 2;
-		else x = x * 2 + 1;
-	}
-	cout << x << "\n";
 
     return 0;
 }

@@ -17,10 +17,7 @@ ll powmod(ll a,ll b) {ll res=1;a%=mod; assert(b>=0); for(;b;b>>=1){if(b&1)res=re
 ll gcd(ll a,ll b) { return b?gcd(b,a%b):a;}
 // head
 
-ll n, x, a[2] = {1, 0};
-bool u = 1;
-string s;
-vector<int> ve;
+int a[4], v[100], f[100], ans = 0;
 
 int main() {
 	ios::sync_with_stdio(false);
@@ -28,23 +25,25 @@ int main() {
 	cout.tie(nullptr);
 	//IO
 
-	cin >> n >> x >> s;
-	rep(i, 0, n) {
-		if (s[i] == 'L') ve.pb(1);
-		else if (s[i] == 'R') ve.pb(2);
-		else {
-			if (!ve.empty()) ve.pop_back();
-			else {
-				x /= 2;
-				if (x == 0) x = 1;
-			}
+	rep(i, 0, 4) cin >> a[i];
+	rep(i, 0, 4) {
+		int n = a[i];
+		int m = 0;
+		memset(v, 0, sizeof(v));
+		memset(f, 0, sizeof(f));
+		rep(j, 1, n + 1) {
+			cin >> v[j];
+			m += v[j];
 		}
+		rep(j, 1, n + 1) {
+			rep(k, v[i], m / 2 + 1) 
+				f[k] = max(f[k], f[k - v[j]] + v[j]);
+		}
+		ans += m - f[m / 2];
 	}
-	for (auto v : ve) {
-		if (v == 1) x *= 2;
-		else x = x * 2 + 1;
-	}
-	cout << x << "\n";
+	cout << ans << "\n";
+
+
 
     return 0;
 }
