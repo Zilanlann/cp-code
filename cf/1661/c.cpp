@@ -26,7 +26,10 @@ ll solve(ll odd, ll even) {
 	if (odd > even) ans = odd * 2 - 1;
 	else if (odd == even) ans = even * 2;
 	else {
-		while (even - odd >= 2) even--, odd += 2;
+		ll a = (even - odd) / 3;
+		if ((even - odd) % 3 == 2) a++;
+		odd += a * 2;
+		even -= a;
 		if (odd > even) ans = odd * 2 - 1;
 		else ans = even * 2;
 	}
@@ -60,6 +63,7 @@ int main() {
 				odd1 += (maxx - a[i]) % 2;
 				even1 += (maxx - a[i]) / 2;
 			}
+			//cout << odd << " " << even << "  " << odd1 << " " << even1 << "  ";
 			ans = min(solve(odd, even), solve(odd1, even1));
 		}
 		else ans = solve(odd, even);
