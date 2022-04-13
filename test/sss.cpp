@@ -5,13 +5,8 @@ typedef long long ll;
 
 using namespace std;
 
-const ll mod = 998244353;
-
-ll cal(ll x) {
-    x %= mod;
-    x = (x * (x + 1) / 2) % mod;
-    return x;
-}
+string s;
+int t;
 
 int main(){
     ios::sync_with_stdio(false);
@@ -19,23 +14,22 @@ int main(){
     cout.tie(nullptr);
     //IO
 
-    freopen("A5.in", "r", stdin);
-    freopen("A5.out", "w", stdout);
-    ll n;
-    cin >> n;
-    ll ans = 0, p = 10;
-    for (ll i = 1; i <= 18; i++) {
-        ll l = p / 10;
-        ll r = min(n, p - 1);
-        if (l <= r) {
-            ans = (ans + cal(r - l + 1)) % mod;
-        }
-        else {
-            break;
-        }
-        p *= 10;
+    freopen("A10.in", "r", stdin);
+    freopen("A10.out", "w", stdout);
+
+    cin >> s;
+    cin >> t;
+    while (t--) {
+        int l, r, k;
+        cin >> l >> r >> k;
+        string cp = s.substr(0, l - 1);
+        k %= r - l + 1;
+        cp += s.substr(r - l + 1 - k + l - 1, k);
+        cp += s.substr(l - 1, r - l + 1 - k);
+        cp += s.substr(r, s.size() - r);
+        s = cp;
     }
-    cout << ans << "\n";
+    cout << s;
 
     return 0;
 }

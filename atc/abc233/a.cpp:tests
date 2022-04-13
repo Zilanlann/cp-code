@@ -2,25 +2,22 @@
 	{
 		"correct_answers":
 		[
-			"203"
+			"2"
 		],
-		"test": "4\n"
+		"test": "80 94\n"
 	},
 	{
 		"correct_answers":
 		[
-			"25"
+			"0"
 		],
-		"test": "2\n"
+		"test": "1000 63\n"
 	},
 	{
 		"correct_answers":
 		[
-			"248860093"
+			"48"
 		],
-		"test": "1000000\n"
-	},
-	{
-		"test": "20\n"
+		"test": "270 750\n"
 	}
 ]

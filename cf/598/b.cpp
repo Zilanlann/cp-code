@@ -17,27 +17,28 @@ ll powmod(ll a,ll b) {ll res=1;a%=mod; assert(b>=0); for(;b;b>>=1){if(b&1)res=re
 ll gcd(ll a,ll b) { return b?gcd(b,a%b):a;}
 // head
 
-ll t, op, x, k;
-multiset<ll> se;
+string s;
+int t;
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-    cout.tie(nullptr);
-    //IO
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+	cout.tie(nullptr);
+	//IO
 
-    rep(i, 0, 5) se.insert(2e18), se.insert(-1);
-    cin >> t;
-    while (t--) {
-        cin >> op >> x;
-        if (op == 1) se.insert(x);
-        else {
-            cin >> k;
-            auto it = op == 2 ? se.upper_bound(x) : se.lower_bound(x);
-            advance(it, op == 2 ? - k : k - 1);
-            cout << (*it == 2e18 ? -1 : *it) << "\n";
-        }
-    }
+	cin >> s;
+	cin >> t;
+	while (t--) {
+		int l, r, k;
+		cin >> l >> r >> k;
+		string cp = s.substr(0, l - 1);
+		k %= r - l + 1;
+		cp += s.substr(r - l + 1 - k + l - 1, k);
+		cp += s.substr(l - 1, r - l + 1 - k);
+		cp += s.substr(r, s.size() - r);
+		s = cp;
+	}
+	cout << s << "\n";
 
     return 0;
 }

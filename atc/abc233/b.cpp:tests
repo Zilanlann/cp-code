@@ -1,0 +1,23 @@
+[
+	{
+		"correct_answers":
+		[
+			"abgfedch"
+		],
+		"test": "3 7\nabcdefgh\n"
+	},
+	{
+		"correct_answers":
+		[
+			"reviver"
+		],
+		"test": "1 7\nreviver\n"
+	},
+	{
+		"correct_answers":
+		[
+			"meramtsirhcyrs"
+		],
+		"test": "4 13\nmerrychristmas\n"
+	}
+]
