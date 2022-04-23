@@ -1,3 +1,11 @@
+// Problem: E - Minimal payments
+// Contest: AtCoder - Panasonic Programming Contest 2021(AtCoder Beginner
+// Contest 231) URL: https://atcoder.jp/contests/abc231/tasks/abc231_e Memory
+// Limit: 1024 MB Time Limit: 2000 ms
+//
+// Author: chrisann
+// Date: 2022-04-21 09:40:12
+
 #include <bits/stdc++.h>
 using namespace std;
 #define rep(i, a, n) for (int i = a; i < n; i++)
@@ -19,23 +27,11 @@ int main() {
     cout.tie(nullptr);
     // IO
 
-    // for (int i = 1; i <= 9; i++) {
-    // string in = to_string(i) + ".in";
-    // string out = to_string(i) + ".out";
-    // freopen(in.c_str(), "r", stdin);
-    // freopen(out.c_str(), "w", stdout);
-    // ll a, b;
-    // cin >> a >> b;
-    // ll ans1 = gcd(a, b);
-    // ll ans2 = a * b / ans1;
-    // cout << ans1 << "\n" << ans2 << "\n";
-    // }
-    ll a, b;
-    cin >> a >> b;
-    ll ans1 = gcd(a, b);
-    ll ans2 = a * b / ans1;
-    cout << ans1 << "\n" << ans2 << "\n";
-    cout << a * b;
+    int n, k;
+    cin >> n >> k;
+    vector<int> ve(n);
+    for (auto& v : ve) cin >> v;
+    per(i, 0, n) {}
 
     return 0;
 }

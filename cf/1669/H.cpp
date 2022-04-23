@@ -1,3 +1,12 @@
+// Problem: H. Maximal AND
+// Contest: Codeforces Round #784 (Div. 4)
+// URL: https://codeforces.com/contest/1669/problem/H
+// Memory Limit: 256 MB
+// Time Limit: 2000 ms
+//
+// Author: chrisann
+// Date: 2022-04-21 22:35:11
+
 #include <bits/stdc++.h>
 using namespace std;
 #define rep(i, a, n) for (int i = a; i < n; i++)
@@ -18,24 +27,6 @@ int main() {
     cin.tie(nullptr);
     cout.tie(nullptr);
     // IO
-
-    // for (int i = 1; i <= 9; i++) {
-    // string in = to_string(i) + ".in";
-    // string out = to_string(i) + ".out";
-    // freopen(in.c_str(), "r", stdin);
-    // freopen(out.c_str(), "w", stdout);
-    // ll a, b;
-    // cin >> a >> b;
-    // ll ans1 = gcd(a, b);
-    // ll ans2 = a * b / ans1;
-    // cout << ans1 << "\n" << ans2 << "\n";
-    // }
-    ll a, b;
-    cin >> a >> b;
-    ll ans1 = gcd(a, b);
-    ll ans2 = a * b / ans1;
-    cout << ans1 << "\n" << ans2 << "\n";
-    cout << a * b;
 
     return 0;
 }
