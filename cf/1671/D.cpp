@@ -30,12 +30,35 @@ int main() {
 
     int t;
     cin >> t;
+    int cnt = 0;
     while (t--) {
+        cnt++;
         int n, k;
         cin >> n >> k;
         vector<int> ve(n);
         for (auto& v : ve) cin >> v;
-        rep(i, 1, n) {}
+        int l = *min_element(all(ve));
+        int r = *max_element(all(ve));
+        ll ans = 0;
+        rep(i, 1, n) { ans += abs(ve[i] - ve[i - 1]); }
+        if (k <= l) {
+            if (ve[0] == l || ve[n - 1] == l)
+                ans += l - 1;
+            else
+                ans += 2 * (l - 1);
+        } else {
+            if (ve[0] == l || ve[n - 1] == l)
+                ans += l - 1;
+            else if (l != 1)
+                ans += l;
+            if (k > r) {
+                if (ve[0] == r || ve[n - 1] == r)
+                    ans += k - r;
+                else
+                    ans += k - r + 1;
+            }
+        }
+        cout << ans << "\n";
     }
 
     return 0;
