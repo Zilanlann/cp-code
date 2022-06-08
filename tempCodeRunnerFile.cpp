@@ -1,27 +1,27 @@
-#include <bits/stdc++.h>
+#include <iostream>
+
 using namespace std;
-#define rep(i,a,n) for (int i=a;i<n;i++)
-#define per(i,a,n) for (int i=n-1;i>=a;i--)
-#define pb push_back
-#define mp make_pair
-#define all(x) (x).begin(),(x).end()
-#define fi first
-#define se second
-#define SZ(x) ((int)(x).size())
-typedef long long ll;
-typedef double db;
-ll gcd(ll a,ll b) { return b?gcd(b,a%b):a;}
-// head
-
-
 
 int main() {
-	ios::sync_with_stdio(false);
-	cin.tie(nullptr);
-	cout.tie(nullptr);
-	//IO
-
-	cout << 1;
-
+    //输出从1到100000的素数，而且时间复杂度为O(n)
+    int n = 100000;
+    bool *is_prime = new bool[n + 1];
+    for (int i = 0; i <= n; i++) {
+        is_prime[i] = true;
+    }
+    is_prime[0] = is_prime[1] = false;
+    for (int i = 2; i <= n; i++) {
+        if (is_prime[i]) {
+            for (int j = i * 2; j <= n; j += i) {
+                is_prime[j] = false;
+            }
+        }
+    }
+    for (int i = 0; i <= n; i++) {
+        if (is_prime[i]) {
+            cout << i << endl;
+        }
+    }
     return 0;
+    
 }
