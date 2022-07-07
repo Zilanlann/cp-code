@@ -1,0 +1,7 @@
+-Wall 
+-Wextra 
+-Wconversion 
+-DONLINE_JUDGE 
+-Wl,-stack_size,0x10000000,-stack_addr,0xc0000000 
+-O2 
+-std=c++20
