@@ -1,30 +1,21 @@
 #include <iostream>
 using namespace std;
+typedef long long ll;
 
-const int maxn = 20210605;
-bool is_prime[maxn + 1];
-
-bool check(int n) {
-    while (n) {
-        int a = n % 10;
-        if (a == 2 || a == 3 || a == 5 || a == 7)
-            ;
-        else
-            return false;
-        n /= 10;
-    }
-    return true;
-}
+int n, W;
+int f[10000], w[10000], v[10000];
 
 int main() {
-    memset(is_prime, 1, sizeof(is_prime));
-    is_prime[0] = is_prime[1] = 0;
-    for (int i = 2; i * i <= maxn; i++) {
-        if (is_prime[i]) {
-            for (int j = i * i; j <= maxn; j += i) is_prime[j] = 0;
-        }
+    cin >> n;
+    for (int i = 1; i <= n; i++) {
+        cin >> w[i];
+        v[i] = w[i];
+        W += w[i];
     }
-    for (int i = 2; i <= maxn; i++) {
-        if (is_prime[i] && check(i)) cout << i << "\n";
-    }
+    W /= 2;
+    for (int i = 1; i <= n; i++)
+        for (int l = W; l >= w[i]; l--) f[l] = max(f[l], f[l - w[i]] + v[i]);
+    cout << f[W] << "\n";
+
+    return 0;
 }

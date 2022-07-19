@@ -1,20 +1,23 @@
-#include <algorithm>
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
 
-const int maxn = 1e6 + 6;
-int n, k;
-int a[maxn];
+int n, m;
+int a[1001][100001];
 
 int main() {
-    cin >> n >> k;
-    for (int i = 0; i < n; i++) cin >> a[i];
-    while (k--) {
-        int x;
-        cin >> x;
-        cout << lower_bound(a, a + n, x) - a + 1 << " ";
+    cin >> n >> m;
+    for (int i = 0; i < m; i++) {
+        int u, v;
+        cin >> u >> v;
+        a[u][v]++;
+        a[v][u]++;
+        if (a[u][v] > 1 || a[v][u] > 1) {
+            cout << "No\n";
+            return 0;
+        }
     }
+    cout << "Yes\n";
 
     return 0;
 }
