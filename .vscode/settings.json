@@ -1,0 +1,24 @@
+{
+    "files.associations": {
+        "iostream": "cpp",
+        "__tree": "cpp",
+        "array": "cpp",
+        "barrier": "cpp",
+        "bitset": "cpp",
+        "iterator": "cpp",
+        "memory": "cpp",
+        "numeric": "cpp",
+        "ratio": "cpp",
+        "regex": "cpp",
+        "span": "cpp",
+        "tuple": "cpp",
+        "utility": "cpp",
+        "variant": "cpp",
+        "*.tcc": "cpp",
+        "random": "cpp",
+        "type_traits": "cpp",
+        "concepts": "cpp",
+        "functional": "cpp",
+        "ranges": "cpp"
+    }
+}
