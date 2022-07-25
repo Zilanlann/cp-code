@@ -19,6 +19,13 @@
         "type_traits": "cpp",
         "concepts": "cpp",
         "functional": "cpp",
-        "ranges": "cpp"
+        "ranges": "cpp",
+        "__split_buffer": "cpp",
+        "deque": "cpp",
+        "list": "cpp",
+        "queue": "cpp",
+        "string": "cpp",
+        "string_view": "cpp",
+        "vector": "cpp"
     }
 }
