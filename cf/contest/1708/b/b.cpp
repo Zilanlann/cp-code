@@ -15,9 +15,7 @@ ll gcd(ll a, ll b) {
 }
 // head
 
-const int maxn = 1e5 + 5;
 int t;
-int a[maxn];
 
 int main() {
     ios::sync_with_stdio(false);
@@ -25,30 +23,20 @@ int main() {
     cout.tie(nullptr);
     // IO
 
+    //每个数可重复！！！这样这题就非常简单了，判断一下l，r之间有没有这个倍数即可
     cin >> t;
     while (t--) {
         int n, l, r;
         cin >> n >> l >> r;
-        set<int> vis;
-        bool fl = 1;
-        for (int i = n; i >= 1; i--) {
-            int x = r % i;
-            x = r - x;
-            // cout << x << " ";
-            while (vis.count(x)) {
-                x -= i;
-            }
-            if (x < l) {
-                fl = 0;
-                break;
-            } else {
-                a[i] = x;
-                vis.insert(x);
-            }
+        vector<int> ve;
+        for (int i = 1; i <= n; i++) {
+            int tmp = l;
+            if (l % i != 0) tmp += i - l % i;
+            if (tmp >= l && tmp <= r) ve.push_back(tmp);
         }
-        if (fl) {
+        if (ve.size() == n) {
             cout << "YES\n";
-            for (int i = 1; i <= n; i++) cout << a[i] << " ";
+            for (auto v : ve) cout << v << " ";
             cout << "\n";
         } else
             cout << "NO\n";

@@ -15,61 +15,34 @@ ll gcd(ll a, ll b) {
 }
 // head
 
-const int maxn = 1e5 + 5;
-int t;
-int n, q, cnt, ans;
-int a[maxn];
-bool b[maxn], c[maxn];
-map<int, vector<int>> ma;
-
-void dfs(int i) {
-    if (i < 0 || q <= 0) return;
-    if (a[i] > q) {
-        q--;
-        cnt++;
-        cnt -= ma[q + 1].size();
-        // cout << ma[q + 1].size() << " ";
-        ans = max(ans, cnt);
-        for (auto v : ma[q + 1]) dfs(v);
-        ma[q + 1].clear();
-        ma[a[i]].push_back(i);
-    } else
-        ma[a[i]].push_back(i);
-    dfs(i - 1);
-    return;
-}
+const int N = 1e5 + 5;
+int a[N], b[N];
 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    cout.tie(nullptr);
     // IO
 
+    int t;
     cin >> t;
     while (t--) {
-        ma.clear();
-        cnt = 0;
-        memset(b, 0, sizeof(b));
+        int n, q;
         cin >> n >> q;
-        for (int i = 0; i < n; i++) {
-            cin >> a[i];
-            if (a[i] <= q) cnt++, b[i] = 1;
+        for (int i = 1; i <= n; i++) cin >> a[i];
+        b[n] = 1;
+        for (int i = n - 1; i >= 1; i--) {
+            if (a[i] > b[i + 1]) b[i] = b[i + 1] + 1;
+            else b[i] = b[i + 1];
         }
-        if (q >= n) {
-            cout << string(n, '1') << "\n";
-            continue;
-        }
-        int cc = cnt;
-        ans = cnt;
-        dfs(n - 1);
-        ans -= cc;
-        for (int i = n - 1; i >= 0; i--) {
-            if (ans > 0 && b[i] == 0) {
-                ans--;
-                b[i] = 1;
+        bool fl = 0;
+        for (int i = 1; i <= n; i++) {
+            if (q >= b[i]) fl = 1;
+            if (fl) cout << 1;
+            else {
+                if (a[i] <= q) cout << 1;
+                else cout << 0;
             }
         }
-        for (int i = 0; i < n; i++) cout << b[i];
         cout << "\n";
     }
 
