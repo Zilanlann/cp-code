@@ -17,7 +17,6 @@ ll gcd(ll a, ll b) {
 
 const int N = 1e5 + 5;
 int t, n, m, k;
-int a[N], b[N];
 
 int main() {
     ios::sync_with_stdio(false);
@@ -27,53 +26,43 @@ int main() {
 
     cin >> t;
     while (t--) {
+        vector<int> a, b;
         cin >> n >> m >> k;
         for (int i = 1; i <= k; i++) {
             int x;
             cin >> x;
-            a[i] = x / n;
-            b[i] = x / m;
+            if (x / n >= 2) a.push_back(x / n);
+            if (x / m >= 2) b.push_back(x / m);
         }
-        sort(a + 1, a + 1 + k, greater<int>());
-        sort(b + 1, b + 1 + k, greater<int>());
-        // cout << n << " " << m << " | ";
-        for (int i = 1; i <= k; i++) {
-            if (m != 0) {
-                if (a[i] >= 2) {
-                    if (a[i] == 2 && m == 3)
-                        ;
-                    else {
-                        if (m - a[i] <= 0)
-                            m = 0;
-                        else if (m - a[i] < 2)
-                            m = 2;
-                        else
-                            m -= a[i];
-                    }
+        sort(a.begin(), a.end());
+        sort(b.begin(), b.end());
+        for (auto v : a) {
+            if (m == 0) break;
+            else if (m == 1) {
+                if (v > a[0]) {
+                    m = 0;
+                    break;
                 }
+                else continue;
             }
-            if (n != 0) {
-                if (b[i] >= 2) {
-                    if (b[i] == 2 && n == 3)
-                        ;
-                    else {
-                        if (n - b[i] <= 0)
-                            n = 0;
-                        else if (n - b[i] < 2)
-                            n = 2;
-                        else
-                            n -= b[i];
-                    }
+            m = max(0, m - v);
+        }
+        for (auto v : b) {
+            if (n == 0) break;
+            else if (n == 1) {
+                if (v > b[0]) {
+                    n = 0;
+                    break;
                 }
+                else continue;
             }
-            cout << n << " " << m << " | ";
+            n = max(0, n - v);
         }
         if (n == 0 || m == 0)
             cout << "Yes\n";
         else
             cout << "No\n";
     }
-
     return 0;
 }
 
